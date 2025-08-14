@@ -1,0 +1,11 @@
+
+flask-server/.DS_Store
+.vscode/launch.json
+flask-server/.DS_Store
+*.pyc
+flask-server/venv
+react-ui/node_modules/
+flask-server/venv/bin/activate
+flask-server/.DS_Store
+
+

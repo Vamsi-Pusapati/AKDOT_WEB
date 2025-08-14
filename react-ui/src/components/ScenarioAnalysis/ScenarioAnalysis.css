@@ -1,0 +1,270 @@
+/* ScenarioAnalysis.css */
+.scenario-analysis-container {
+  display: flex;
+  flex-wrap: wrap;      /* allows panels to wrap on smaller screens */
+  background-color: #dde0e1; /* Light blue background */
+  padding: 20px;
+}
+
+/* Ensure each panel can shrink and wrap as needed */
+.left-panel,
+.center-panel,
+.right-panel {
+  flex: 1;
+  min-width: 0;         /* prevents content overflow */
+  margin-right: 10px;
+  margin-bottom: 10px;  /* spacing when wrapped */
+  box-sizing: border-box;
+}
+
+/* Optionally adjust flex ratios for center/right panels */
+.center-panel {
+  flex: 2 2;
+}
+
+.right-panel {
+  flex: 2 1 0;          /* flexible, but respects available space */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;      /* ensures it doesn't exceed the container's width */
+}
+
+/* Scenario panels */
+.short-term-scenarios, .long-term-scenarios {
+  background-color: #ffffff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: solid;
+}
+
+#disruptionTimeDate {
+  width: 90%;
+}
+
+.sa-headers {
+  background-color: RGB(24, 79, 158);
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: larger;
+  padding: 10px;
+  margin-top: 3px;
+  text-align: center;
+}
+
+/* Responsive video placeholder */
+.video-placeholder {
+  width: 100%;          /* use full width of the parent */
+  max-width: 45rem;     /* optional maximum width */
+  height: auto;         /* height scales automatically */
+  min-height: 30rem;    /* optional minimum height */
+  border-radius: 5px;
+  border: solid;
+  box-sizing: border-box;
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  /* Additional styling for icons */
+}
+
+.arrow-icon.left-arrow {
+  left: 0;
+  padding-left: 8px;
+}
+
+.arrow-icon.right-arrow {
+  right: 0;
+}
+
+.parameter {
+  margin-bottom: 10px;
+}
+
+.parameter label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.parameter select, .parameter input {
+  width: 95%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.action-buttons {
+  display: flex;
+  background-color: #ffffff;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  justify-content: space-evenly !important;
+  border: solid;
+}
+
+.run-button:disabled {
+  background-color: #cccccc; /* Gray background for disabled state */
+  color: #666666;            /* Gray text for disabled state */
+  cursor: not-allowed;       /* Indicates disabled state */
+}
+
+.action-buttons button {
+  width: 30%;
+  padding: 10px 0;
+  border-radius: 15px;
+  border: none;
+  background-color: #0747a6;
+  color: white;
+  cursor: pointer;
+  font-size: larger;
+}
+
+.action-buttons button:hover {
+  background-color: #093684;
+}
+
+.video-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.sa-suggestions-box {
+  width: 100%;
+  padding: 10px 0.5px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: solid;
+}
+
+.statistics-and-plots {
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 5px;
+  border: solid;
+  width: 100%;
+}
+
+.statistics-and-plots img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.iframe-plot {
+  width: 95%;
+  height: 30rem; /* Adjust height as needed */
+  margin: 0 auto; /* Center the iframe */
+  margin-left: 8px;
+}
+
+.table-container {
+  max-height: 14rem;
+  overflow-y: auto;
+  width: 100%; /* Adjust if needed */
+  display: block;
+}
+
+/* Style the table as needed */
+table {
+  width: 100%; /* Adjust if necessary */
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.plot-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.plot-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-icon {
+  cursor: pointer;
+  z-index: 10;
+  font-size: 2rem;
+}
+
+.left-arrow {
+  position: absolute;
+  left: 0;
+}
+
+.right-arrow {
+  position: absolute;
+  right: 0;
+}
+
+.table-container {
+  max-height: 400px;         /* Keeps the container from growing too tall */
+  overflow-x: auto;          /* Enables horizontal scrolling if needed */
+  overflow-y: auto;          /* Enables vertical scrolling */
+  width: 100%;               /* Uses full container width */
+  box-sizing: border-box;    /* Includes padding and border in width calculation */
+  margin: 0 auto;            /* Optional: centers the container */
+}
+.table-container table {
+  width: 100%;          /* Make the table occupy full container width */
+  table-layout: fixed;  /* Enforce fixed column widths to prevent overflow */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.maps-container {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.short-term-map img,
+.long-term-maps img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.long-term-maps {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.alternative-route-display {
+  width: 95%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  color: #333;
+}

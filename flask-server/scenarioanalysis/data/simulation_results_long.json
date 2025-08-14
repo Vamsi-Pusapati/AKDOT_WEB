@@ -1,0 +1,37 @@
+[
+    {
+        "Distribution":"[0, 1]",
+        "Average Waiting Time (sec)":17.0,
+        "Maximum Waiting Time (sec)":461.0,
+        "Average Cycle Time (min)":21.0,
+        "Maximum Cycle Time (min)":42.8
+    },
+    {
+        "Distribution":"[0.25, 0.75]",
+        "Average Waiting Time (sec)":17.0,
+        "Maximum Waiting Time (sec)":508.0,
+        "Average Cycle Time (min)":21.2,
+        "Maximum Cycle Time (min)":43.3
+    },
+    {
+        "Distribution":"[0.5, 0.5]",
+        "Average Waiting Time (sec)":17.0,
+        "Maximum Waiting Time (sec)":556.0,
+        "Average Cycle Time (min)":21.1,
+        "Maximum Cycle Time (min)":43.2
+    },
+    {
+        "Distribution":"[0.75, 0.25]",
+        "Average Waiting Time (sec)":17.0,
+        "Maximum Waiting Time (sec)":483.0,
+        "Average Cycle Time (min)":21.2,
+        "Maximum Cycle Time (min)":42.9
+    },
+    {
+        "Distribution":"[1, 0]",
+        "Average Waiting Time (sec)":17.0,
+        "Maximum Waiting Time (sec)":444.0,
+        "Average Cycle Time (min)":20.9,
+        "Maximum Cycle Time (min)":42.7
+    }
+]

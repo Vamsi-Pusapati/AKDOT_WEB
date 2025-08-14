@@ -1,0 +1,72 @@
+[
+    {
+        "Route": "Marathon-Military",
+        "Avg Waiting Time": 0.30563165905630457,
+        "Max Waiting Time": 1.2333333333333092,
+        "Avg Cycle Time": 22.26784297981014,
+        "Max Cycle Time": 35.749370260976626
+    },
+    {
+        "Route": "Marathon-Marathon",
+        "Avg Waiting Time": 0.3052144249512502,
+        "Max Waiting Time": 0.8500000000000038,
+        "Avg Cycle Time": 25.26171052392056,
+        "Max Cycle Time": 41.66873701650984
+    },
+    {
+        "Route": "Military-Marathon",
+        "Avg Waiting Time": 0.30783274440517666,
+        "Max Waiting Time": 0.8999999999999754,
+        "Avg Cycle Time": 22.055157916865234,
+        "Max Cycle Time": 36.7468854886689
+    },
+    {
+        "Route": "Military-Military",
+        "Avg Waiting Time": 0.3104740667154278,
+        "Max Waiting Time": 1.2333333333333465,
+        "Avg Cycle Time": 18.820788558068507,
+        "Max Cycle Time": 33.76335496678307
+    },
+    {
+        "Route": "Bluff-Marathon",
+        "Avg Waiting Time": 0.3170557717250293,
+        "Max Waiting Time": 0.916666666666644,
+        "Avg Cycle Time": 29.34682082778637,
+        "Max Cycle Time": 43.804579939863515
+    },
+    {
+        "Route": "Marathon-Bluff",
+        "Avg Waiting Time": 0.30647130647129944,
+        "Max Waiting Time": 0.8333333333333238,
+        "Avg Cycle Time": 28.91150668164651,
+        "Max Cycle Time": 44.44941754288957
+    },
+    {
+        "Route": "Bluff-Military",
+        "Avg Waiting Time": 0.3397970085470069,
+        "Max Waiting Time": 1.0666666666666855,
+        "Avg Cycle Time": 29.492754513202502,
+        "Max Cycle Time": 45.69932317552878
+    },
+    {
+        "Route": "Military-Bluff",
+        "Avg Waiting Time": 0.301092896174847,
+        "Max Waiting Time": 0.983333333333267,
+        "Avg Cycle Time": 29.339390569223863,
+        "Max Cycle Time": 45.26575677867616
+    },
+    {
+        "Route": "Bluff-Bluff",
+        "Avg Waiting Time": 0.3033531153509721,
+        "Max Waiting Time": 1.1333333333333238,
+        "Avg Cycle Time": 29.157230531393004,
+        "Max Cycle Time": 44.582343661224755
+    },
+    {
+        "Route": "Marathon Transit Area Hybrid-Marathon Transit Area Hybrid",
+        "Avg Waiting Time": 0.3106523955147944,
+        "Max Waiting Time": 1.0,
+        "Avg Cycle Time": 28.53421065895929,
+        "Max Cycle Time": 45.240444803575336
+    }
+]
