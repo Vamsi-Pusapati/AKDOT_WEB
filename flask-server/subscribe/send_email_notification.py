@@ -29,5 +29,5 @@ send_email(
     message="This is a test email from Python.",
     to_addr="yhemanthsai555@gmail.com",
     from_addr="yhemanthsai555@gmail.com",
-    password="rcxv qeec psfy sadk"
+    password="<password here>"  # Replace with your email password or app password if using Gmail with 2FA enabled
 )
