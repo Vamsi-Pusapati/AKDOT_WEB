@@ -8,21 +8,194 @@ This system provides real-time monitoring, predictive analytics, and decision su
 
 ## 🏗️ Architecture
 
-### Tech Stack
-- **Backend**: Flask (Python) REST API
-- **Frontend**: React.js with Material-UI
-- **Database**: MongoDB (implied from DAO layer)
-- **Containerization**: Docker & Docker Compose
-- **Task Scheduling**: APScheduler for background jobs
-- **Notifications**: Email & SMS integration
+### System Architecture Overview
 
-### System Components
+The AKDOT Transportation Management System follows a **microservices architecture** with a **three-tier design** pattern, ensuring scalability, maintainability, and high availability.
 
+#### 🏛️ Architecture Pattern: Three-Tier Design
 ```
-├── flask-server/           # Backend API server
-├── react-ui/              # Frontend React application
-├── docker-compose.yml     # Container orchestration
-└── README.md             # This file
+┌─────────────────────────────────────────────────────────────────┐
+│                        Presentation Layer                        │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  │
+│  │   React UI      │  │   Mobile App    │  │   Admin Portal  │  │
+│  │   (Frontend)    │  │   (Future)      │  │   (Future)      │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                        Application Layer                         │
+│  ┌─────────────────────────────────────────────────────────┐   │
+│  │                  Flask REST API Server                   │   │
+│  │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐      │   │
+│  │  │   Services  │  │   Controllers│  │   Middleware │      │   │
+│  │  │   Layer     │  │   Layer      │  │   Layer      │      │   │
+│  │  └─────────────┘  └─────────────┘  └─────────────┘      │   │
+│  └─────────────────────────────────────────────────────────┘   │
+└─────────────────────────────────────────────────────────────────┘
+                                │
+                                ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                         Data Layer                               │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐  │
+│  │   MongoDB       │  │   File System   │  │   External APIs │  │
+│  │   (Database)    │  │   (Static Files)│  │   (Integrations)│  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘  │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 🛠️ Technology Stack
+
+#### **Backend Architecture**
+- **Framework**: Flask (Python 3.8+) with Blueprint pattern
+- **API Design**: RESTful architecture with JSON responses
+- **Authentication**: JWT tokens with bcrypt password hashing
+- **Session Management**: UUID-based session tokens
+- **CORS**: Configured for cross-origin requests
+- **Background Jobs**: APScheduler for scheduled tasks
+
+#### **Frontend Architecture**
+- **Framework**: React 18+ with functional components and hooks
+- **State Management**: React Context API and local state
+- **UI Framework**: Material-UI (MUI) for consistent design
+- **Routing**: React Router for SPA navigation
+- **HTTP Client**: Axios for API communication
+- **Build Tool**: Create React App with Webpack
+
+#### **Database & Storage**
+- **Primary Database**: MongoDB with document-based storage
+- **File Storage**: Local filesystem for static files and uploads
+- **Caching**: In-memory caching for frequently accessed data
+- **Data Formats**: JSON for API communication, Excel for imports/exports
+
+#### **Infrastructure & DevOps**
+- **Containerization**: Docker containers for consistent deployment
+- **Orchestration**: Docker Compose for multi-container management
+- **Environment Management**: Environment variables for configuration
+- **Monitoring**: Built-in logging and error handling
+- **CI/CD Ready**: GitHub Actions compatible structure
+
+### 🔧 Microservices Design
+
+#### **Core Services**
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    Service Architecture                     │
+├─────────────────────────────────────────────────────────────┤
+│  📊 Dashboard Service                                       │
+│     - Real-time data aggregation                            │
+│     - JSON generation for charts                            │
+│     - Scheduled data refresh                                │
+│                                                             │
+│  🚨 Incident Service                                        │
+│     - CRUD operations for incidents                         │
+│     - Priority-based notifications                          │
+│     - Historical data analysis                              │
+│                                                             │
+│  📈 Scenario Analysis Service                               │
+│     - Short-term disruption modeling                        │
+│     - Long-term planning scenarios                          │
+│     - Route optimization algorithms                         │
+│                                                             │
+│  ⚠️ Risk Analysis Service                                   │
+│     - Section-based risk assessment                         │
+│     - Route risk evaluation                                 │
+│     - Predictive modeling                                   │
+│                                                             │
+│  📧 Notification Service                                    │
+│     - Email notifications via SMTP                          │
+│     - SMS notifications via Twilio                          │
+│     - Subscription management                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### 🔄 Data Flow Architecture
+
+```mermaid
+graph TD
+    A[User Interface] --> B[React Frontend]
+    B --> C[Flask REST API]
+    C --> D[Service Layer]
+    D --> E[DAO Layer]
+    E --> F[MongoDB]
+    
+    C --> G[File System]
+    C --> H[External APIs]
+    
+    I[Scheduler] --> C
+    J[Notifications] --> K[Email/SMS]
+```
+
+### 🏗️ Component Architecture
+
+#### **Backend Components**
+```
+flask-server/
+├── app.py                    # Main application entry point
+├── config.py                 # Configuration management
+├── dao/                      # Data Access Objects
+│   ├── incident_dao.py       # Incident data operations
+│   └── user_dao.py           # User management
+├── services/                 # Business logic layer
+│   ├── dashboard_service.py  # Dashboard data generation
+│   ├── incident_service.py   # Incident management
+│   └── scenario_analysis.py  # Scenario processing
+├── scenarioanalysis/         # Analysis modules
+├── dashboard/               # Dashboard components
+├── risk/                    # Risk analysis modules
+└── subscribe/               # Notification services
+```
+
+#### **Frontend Components**
+```
+react-ui/
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── pages/              # Application pages
+│   ├── services/           # API service layer
+│   └── utils/              # Utility functions
+├── public/                 # Static assets
+└── package.json            # Dependencies and scripts
+```
+
+### 🔐 Security Architecture
+
+- **Authentication**: JWT tokens with refresh mechanism
+- **Authorization**: Role-based access control (RBAC)
+- **Data Encryption**: HTTPS/TLS for data in transit
+- **Input Validation**: Comprehensive sanitization and validation
+- **Rate Limiting**: API endpoint protection
+- **Error Handling**: Secure error messages without sensitive data
+
+### 📊 Scalability Design
+
+- **Horizontal Scaling**: Microservices can be deployed independently
+- **Load Balancing**: Ready for load balancer integration
+- **Database Sharding**: MongoDB supports horizontal scaling
+- **Caching Strategy**: Multi-level caching for performance
+- **CDN Ready**: Static assets can be served via CDN
+
+### 🚀 Deployment Architecture
+
+#### **Development Environment**
+```bash
+# Local development
+docker-compose up --build
+
+# Individual services
+cd flask-server && python app.py
+cd react-ui && npm start
+```
+
+#### **Production Environment**
+```bash
+# Production build
+docker-compose -f docker-compose.prod.yml up -d
+
+# Environment variables
+export BASE_PATH=/opt/akdot
+export NODE_ENV=production
+export FLASK_ENV=production
 ```
 
 ## 🚀 Features
@@ -231,12 +404,7 @@ npm test
 - **Input validation** and sanitization
 - **Rate limiting** on API endpoints
 
-## 📞 Support & Contact
 
-For technical support or questions about this system:
-- **Email**: [support-email]
-- **Documentation**: [link-to-docs]
-- **Issue Tracker**: [link-to-issues]
 
 ## 🤝 Contributing
 
