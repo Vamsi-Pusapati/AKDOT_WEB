@@ -252,9 +252,9 @@ export FLASK_ENV=production
 - `POST /logout` - Session termination
 
 ### Incident Management
-- `GET /getincidents` - Retrieve all open incidents
-- `POST /addincident` - Create new incident
-- `PUT /incident/<id>` - Update incident details
+- `GET /incidents` - Retrieve all open incidents
+- `POST /incidents` - Create new incident
+- `PUT /incidents/<id>` - Update incident details
 - `PUT /closeincident/<id>` - Close incident
 
 ### Scenario Analysis
